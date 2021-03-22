@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Producto de prueba 1",
+            "description": "Ipsum voluptate labore veniam dolore. In incididunt esse aute quis do elit deserunt non aute duis anim.",            
+            "price": 200,
+            "stock": 23,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+        },
+        {
+            "id": 2,
+            "title": "Producto de prueba 2",
+            "description": "Duis exercitation anim minim irure ea. In incididunt esse aute quis do elit deserunt non aute duis anim.",            
+            "price": 500,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+        },
+        {
+            "id": 3,
+            "title": "Producto de prueba 3",
+            "description": "Incididunt irure qui deserunt amet ad cillum quis aliqua veniam cillum aliqua esse aliquip.",
+            "price": 830,
+            "stock": 2,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+        },
+        {
+            "id": 4,
+            "title": "Producto de prueba 4",
+            "description": "Mollit sint nostrud ad excepteur esse. Quis do elit deserunt non aute duis anim.",            
+            "price": 240,
+            "stock": 34,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+        },
+        {
+            "id": 5,
+            "title": "Producto de prueba 5",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+        },
+        {
+            "id": 6,
+            "title": "Producto de prueba 6",
+            "description": "Commodo ut magna irure ullamco aute Lorem voluptate labore amet.",            
+            "price": 70,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"            
+        }
+    ]
+}

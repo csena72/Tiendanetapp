@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { GetItems } from "./helpers/GetItems";
+import  NavBar from "./components/NavBar";
+import { ItemListContainer } from "./components/ItemListContainer";
+import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import './App.css';
 
 function App() {
+
+  const [state, setState] = useState({
+    data: []
+  });    
+
+  useEffect(() => {
+      setTimeout(() => {
+          GetItems()
+              .then(items => {
+                  setState({
+                      data: items
+                  })
+              })
+      }, 2000);
+  }, [])
+
+  const { data:items } =  state;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path ='/'>
+            <ItemListContainer items={items} />
+          </Route> 
+          <Route path ='/itemDetail/:id?' component = { ItemDetailContainer } />          
+        </Switch>
+      </BrowserRouter>
+    </>    
   );
 }
 
 export default App;
+
