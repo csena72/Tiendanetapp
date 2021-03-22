@@ -1,4 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import {
+  ButtonGroup,
+  Button,
+  Alert
+
+} from 'react-bootstrap';
 
 export function ItemCount({ stock, initial, onAdd }) {
   const [counter, setCounter] = useState(initial);
@@ -8,44 +14,44 @@ export function ItemCount({ stock, initial, onAdd }) {
 
   return (
     <>
-      <form>
-        <div>
-          <div>
-            <h4>Stock: {stock} </h4>
-          </div>
-
-          <div>
-            <button
-              type="button"
-              disabled={stock === 0 || counter < 1}
-              onClick={handleSubstract}
-            >
-              {" "}
-              -{" "}
-            </button>
-
-            <label type="text">{counter}</label>
-
-            <button
-              type="button"
-              disabled={stock === 0 || counter > stock || counter === stock}
-              onClick={handleAdd}
-            >
-              {" "}
-              +{" "}
-            </button>
-          </div>
-          <div>
-            <button
-              type="button"
-              disabled={counter === 0 || counter > stock}
-              onClick={(e) => onAdd(e, counter)}
-            >
-              Agregar al Carrito
-            </button>
-          </div>
-        </div>
-      </form>
+      <Alert variant="secondary">
+        <h6>Stock: {stock} </h6>
+      
+      <ButtonGroup aria-label="Basic example">
+        <Button 
+          variant="secondary"
+          size="sm"
+          onClick={handleSubstract}
+          disabled={ stock === 0 || counter < 1 }
+        > 
+          - 
+        </Button>
+        <Button 
+          variant="secondary"
+          size="sm"
+          disabled={true}
+        >
+          {counter}
+        </Button>
+        <Button 
+          variant="secondary"
+          size="sm"
+          onClick={handleAdd}
+          disabled={ stock === 0 || counter > stock || counter === stock }
+        > 
+         + 
+        </Button>
+      </ButtonGroup>
+      </Alert>
+      <Button 
+      variant="secondary"
+      size="sm"
+      block
+      disabled={ counter === 0 || counter > stock }
+      onClick={(e) => onAdd(e, counter)}
+      >
+      Agregar al Carrito
+      </Button>
     </>
   );
 }

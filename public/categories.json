@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Tecnología"
+        },
+        {
+            "id": 2,
+            "name": "Hogar Y Muebles"
+        },
+        {
+            "id": 3,
+            "name": "Electrodomésticos"
+        },
+        {
+            "id": 4,
+            "name": "Herramientas y Construcción"
+        },
+        {
+            "id": 5,
+            "name": "Juguetes Y Bebés"
+        },
+        {
+            "id": 6,
+            "name": "Deportes y Fitness"
+        },
+        {
+            "id": 7,
+            "name": "Belleza y salud"
+        },
+        {
+            "id": 8,
+            "name": "Moda"
+        },
+        {
+            "id": 9,
+            "name": "Industrias y Oficinas"
+        }
+    ]
+}    

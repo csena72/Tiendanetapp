@@ -11,7 +11,8 @@ export const GetItems = async() => {
             description: item.description,
             stock: item.stock,
             price: item.price,            
-            pictureUrl: item.pictureUrl
+            pictureUrl: item.pictureUrl,
+            categoryId: item.categoryId
         }
     })    
 

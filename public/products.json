@@ -2,19 +2,21 @@
     "data": [
         {
             "id": 1,
-            "title": "Producto de prueba 1",
-            "description": "Ipsum voluptate labore veniam dolore. In incididunt esse aute quis do elit deserunt non aute duis anim.",            
-            "price": 200,
+            "title": "Micro Procesador Amd Ryzen 7 3800xt 4.7ghz Am4",
+            "description": "Amd Ryzen 7 3800XT 4.7 Ghz - AM4 Sin Video Sin Cooler",            
+            "price": 49500,
             "stock": 23,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+            "pictureUrl": "http://localhost:3000/assets/img/ryzen7.jpg",
+            "categoryId": 1
         },
         {
             "id": 2,
             "title": "Producto de prueba 2",
-            "description": "Duis exercitation anim minim irure ea. In incididunt esse aute quis do elit deserunt non aute duis anim.",            
+            "description": "Duis exercitation anim minim irure ea. In incididunt esse aute quis do elit.",            
             "price": 500,
             "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 5
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "description": "Incididunt irure qui deserunt amet ad cillum quis aliqua veniam cillum aliqua esse aliquip.",
             "price": 830,
             "stock": 2,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 5
         },
         {
             "id": 4,
@@ -30,7 +33,8 @@
             "description": "Mollit sint nostrud ad excepteur esse. Quis do elit deserunt non aute duis anim.",            
             "price": 240,
             "stock": 34,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 6
         },
         {
             "id": 5,
@@ -38,15 +42,98 @@
             "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
             "price": 250,
             "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
         },
         {
             "id": 6,
             "title": "Producto de prueba 6",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 7,
+            "title": "Producto de prueba 7",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 8,
+            "title": "Producto de prueba 8",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 9,
+            "title": "Producto de prueba 9",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 10,
+            "title": "Producto de prueba 10",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 11,
+            "title": "Producto de prueba 11",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 12,
+            "title": "Producto de prueba 12",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 13,
+            "title": "Producto de prueba 13",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 14,
+            "title": "Producto de prueba 14",
+            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
+            "price": 250,
+            "stock": 1,
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
+        },
+        {
+            "id": 15,
+            "title": "Producto de prueba 15",
             "description": "Commodo ut magna irure ullamco aute Lorem voluptate labore amet.",            
             "price": 70,
             "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible"            
+            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
+            "categoryId": 1
         }
     ]
 }

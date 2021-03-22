@@ -1,53 +1,42 @@
 import { CartWidget } from "./CartWidget";
 
-function NavBar() {
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button
+} from 'react-bootstrap'
 
+function NavBar() {
     return (
         <>
-       <nav>
-          <div>
-            <a href="/">
-              <img src="/logo.png" alt="TiendaNet" />
-            </a>
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span ></span>
-            </button>
-            <div id="navbarSupportedContent">
-              <ul>
-                <li>
-                  <a href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorías
-                  </a>
-                  <ul  aria-labelledby="navbarDropdownMenuLink">
-                    <li><a href="/">Tecnología</a></li>
-                    <li><a href="/">Hogar Y Muebles</a></li>
-                    <li><a href="/">Electrodomésticos</a></li>
-                    <li><a href="/">Herramientas y Construcción</a></li>
-                    <li><a href="/">Juguetes Y Bebés</a></li>
-                    <li><a href="/">Deportes y Fitness</a></li>
-                    <li><a href="/">Moda</a></li>
-                    <li><a href="/">Belleza y salud</a></li>
-                    <li><a href="/">Industrias y Oficinas</a></li>
-                    <li><a href="/">Servicios</a></li>                                        
-                  </ul>
-                </li>
-                <li >
-                  <a aria-current="page" href="/">Ofertas</a>
-                </li>                
-                <li>
-                  <a href="/">Ayuda</a>
-                </li>
-                <li>
-                  <CartWidget />
-                </li>
-              </ul>
-              <form >
-                <input  type="search" placeholder="Buscar" aria-label="Buscar" />
-                <button type="submit">Buscar</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+        <Navbar bg="dark" expand="lg" variant="dark" fixed="top">
+          <Navbar.Brand href="/">TiendaNet</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">              
+              <NavDropdown title="Categorias" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/itemList/1">Tecnología</NavDropdown.Item>                
+                <NavDropdown.Item href="/itemList/3">Hogar Y Muebles</NavDropdown.Item>
+                <NavDropdown.Item href="/itemList/4">Electrodomésticos</NavDropdown.Item>
+                <NavDropdown.Item href="/itemList/5">Herramientas y Construcción</NavDropdown.Item>
+                <NavDropdown.Item href="/itemList/6">Juguetes Y Bebés</NavDropdown.Item>
+                <NavDropdown.Item href="/itemList/7">Deportes y Fitness</NavDropdown.Item>
+                <NavDropdown.Item href="/itemList/8">Belleza y salud</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/itemList/9">Industrias y Oficinas</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="/help">Ayuda</Nav.Link>
+              <CartWidget />        
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
+              <Button variant="outline-info">Buscar</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Navbar>
       </>
     );
   }
