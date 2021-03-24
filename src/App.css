@@ -38,6 +38,29 @@
 }
 
 .container-lg {
-  margin-top: 4em;
+  margin-top: 5em;
   margin-bottom: 4em;
+}
+
+.card-title{
+  height: 4.5em;
+}
+
+.navbar-brand a{
+  color: aqua;  
+}
+
+.navbar-brand a:hover,
+.navbar-brand:visited {  
+  color: #17a2b8!important;
+  text-decoration: none;
+}
+
+.card-body a{
+  color: #17a2b8!important;  
+}
+
+.card-body a:hover{
+  color: #6d8a99!important;
+  text-decoration: none;
 }

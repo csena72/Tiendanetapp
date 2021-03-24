@@ -4,6 +4,7 @@ import {
   Navbar,
   Nav,
   NavDropdown,
+  Image,
   Form,
   FormControl,
   Button
@@ -13,7 +14,10 @@ function NavBar() {
     return (
         <>
         <Navbar bg="dark" expand="lg" variant="dark" fixed="top">
-          <Navbar.Brand href="/">TiendaNet</Navbar.Brand>
+          <Navbar.Brand href="/"><Image src={"/logo.png"} /> 
+          TiendaNet
+                        
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">              
@@ -25,8 +29,9 @@ function NavBar() {
                 <NavDropdown.Item href="/itemList/6">Juguetes Y Bebés</NavDropdown.Item>
                 <NavDropdown.Item href="/itemList/7">Deportes y Fitness</NavDropdown.Item>
                 <NavDropdown.Item href="/itemList/8">Belleza y salud</NavDropdown.Item>
-                <NavDropdown.Divider />
                 <NavDropdown.Item href="/itemList/9">Industrias y Oficinas</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/itemList/2">Moda</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/help">Ayuda</Nav.Link>
               <CartWidget />        

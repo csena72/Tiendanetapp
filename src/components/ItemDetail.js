@@ -1,23 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import { Card } from 'react-bootstrap';
 
 export const ItemDetail = ({ item }) => {
+
   return (
-    <div>
-      <img
-        src={item.pictureUrl}        
-        alt="placeholder"
-      />
-      <div>
-        <h5>{item.title}</h5>
-        <p>{item.description}</p>
-        <p>$ {item.price}</p>
-        <div>
-          <Link to={"/"}>
-            Volver...
-          </Link>
-        </div>
-      </div>
-    </div>
+    <Card style={{ width: '15rem', marginTop: '3em' }}>      
+      <Card.Img variant="top" src={item.pictureUrl} />
+      <Card.Body>
+      <Card.Title>{item.title}</Card.Title>
+        <Card.Text>          
+          {item.description}          
+        </Card.Text>      
+        <Card.Text className="float-right">          
+          $ {item.price}          
+        </Card.Text>            
+      </Card.Body>
+    </Card>   
   );
 };

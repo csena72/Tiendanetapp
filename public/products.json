@@ -1,139 +1,137 @@
-{
-    "data": [
-        {
-            "id": 1,
-            "title": "Micro Procesador Amd Ryzen 7 3800xt 4.7ghz Am4",
-            "description": "Amd Ryzen 7 3800XT 4.7 Ghz - AM4 Sin Video Sin Cooler",            
-            "price": 49500,
-            "stock": 23,
-            "pictureUrl": "http://localhost:3000/assets/img/ryzen7.jpg",
-            "categoryId": 1
-        },
-        {
-            "id": 2,
-            "title": "Producto de prueba 2",
-            "description": "Duis exercitation anim minim irure ea. In incididunt esse aute quis do elit.",            
-            "price": 500,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 5
-        },
-        {
-            "id": 3,
-            "title": "Producto de prueba 3",
-            "description": "Incididunt irure qui deserunt amet ad cillum quis aliqua veniam cillum aliqua esse aliquip.",
-            "price": 830,
-            "stock": 2,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 5
-        },
-        {
-            "id": 4,
-            "title": "Producto de prueba 4",
-            "description": "Mollit sint nostrud ad excepteur esse. Quis do elit deserunt non aute duis anim.",            
-            "price": 240,
-            "stock": 34,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 6
-        },
-        {
-            "id": 5,
-            "title": "Producto de prueba 5",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 6,
-            "title": "Producto de prueba 6",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 7,
-            "title": "Producto de prueba 7",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 8,
-            "title": "Producto de prueba 8",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 9,
-            "title": "Producto de prueba 9",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 10,
-            "title": "Producto de prueba 10",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 11,
-            "title": "Producto de prueba 11",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 12,
-            "title": "Producto de prueba 12",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 13,
-            "title": "Producto de prueba 13",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 14,
-            "title": "Producto de prueba 14",
-            "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",            
-            "price": 250,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        },
-        {
-            "id": 15,
-            "title": "Producto de prueba 15",
-            "description": "Commodo ut magna irure ullamco aute Lorem voluptate labore amet.",            
-            "price": 70,
-            "stock": 1,
-            "pictureUrl": "https://via.placeholder.com/286x180?text=imagen+no+disponible",
-            "categoryId": 1
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "title": "Micro Procesador Amd Ryzen 7 3800xt 4.7ghz",
+        "description": "Amd Ryzen 7 3800XT 4.7 Ghz - AM4 Sin Video Sin Cooler",
+        "price": 49500,
+        "stock": 23,
+        "pictureUrl": "http://localhost:3000/assets/img/ryzen7.jpg",
+        "categoryId": 1
+    },
+    {
+        "id": 2,
+        "title": "Pintura Latex Alba Constructor Exterior 20 Lts.",
+        "description": "Pintura de Base Acuosa para decoración y protección de muros en interiores o exteriores, en diferentes niveles de brillo y colores a elección.",
+        "price": 5000,
+        "stock": 67,
+        "pictureUrl": "http://localhost:3000/assets/img/pintura.jpeg",
+        "categoryId": 5
+    },
+    {
+        "id": 3,
+        "title": "Kit Caja Set Herramientas Llave 72 Piezas",
+        "description": "Caja herramientas 72 piezas.Importada de excelente calidad",
+        "price": 14300,
+        "stock": 35,
+        "pictureUrl": "http://localhost:3000/assets/img/herramientas.jpeg",
+        "categoryId": 5
+    },
+    {
+        "id": 4,
+        "title": "Teg Juego De Mesa Original Ruibal",
+        "description": "Increible juego de mesa Teg Clásico. En este juego de mesa conquistarás el mundo. Es un juego de mesa argentino, lanzado originalmente en 1976. Plantea un conflicto bélico que ocurre sobre un planisferio dividido en 50 países.",
+        "price": 3400,
+        "stock": 34,
+        "pictureUrl": "http://localhost:3000/assets/img/teg.jpeg",
+        "categoryId": 6
+    },
+    {
+        "id": 5,
+        "title": "Cafetera Nespresso Modelo Inissia",
+        "description": "Empezá tu día con energía y de la mejor manera, disfrutando de la textura y calidad de un buen café en la comodidad de tu casa.",
+        "price": 250,
+        "stock": 1,
+        "pictureUrl": "http://localhost:3000/assets/img/nespresso.jpg",
+        "categoryId": 4
+    },
+    {
+        "id": 6,
+        "title": "Tostadora Philips HD2581/60",
+        "description": "Gracias a su rejilla calientabollos integrada, se adapta a todo tipo de pan y podrás calentar pasteles y rollitos.",
+        "price": 250,
+        "stock": 1,
+        "pictureUrl": "http://localhost:3000/assets/img/tostadora.jpg",
+        "categoryId": 4
+    },
+    {
+        "id": 7,
+        "title": "Silla Modelo Tanah De Madera Tapizado Negro",
+        "description": "SILLA MODELO TANAH - Estructura de madera.",        
+        "price": 25300,
+        "stock": 20,
+        "pictureUrl": "http://localhost:3000/assets/img/silla.jpeg",
+        "categoryId": 3
+    },
+    {
+        "id": 8,
+        "title": "Prono Didáctico Madera Estimulación Bebe Juego",
+        "description": "El prono es ideal para desarrollar la motricidad fina, ayuda a ejercitar conocimientos del tipo lógico-matemático a través de la identificación de colores,agrupando,contando y sumando.",
+        "price": 1580,
+        "stock":29,
+        "pictureUrl": "http://localhost:3000/assets/img/juego.jpeg",
+        "categoryId": 6
+    },
+    {
+        "id": 9,
+        "title": "Bicicleta Rodado 28 Sunny Comet",
+        "description": "Bicicleta Rodado 28” Sunny Comet",
+        "price": 54990,
+        "stock": 4,
+        "pictureUrl": "http://localhost:3000/assets/img/bici.jpeg",
+        "categoryId": 7
+    },
+    {
+        "id": 10,
+        "title": "Gimnasio Multifunción C/ Polea Dorsalera Remo",
+        "description": "Ea excepteur cupidatat dolore enim Lorem esse excepteur irure ullamco nulla nisi.",
+        "price": 31500,
+        "stock": 23,
+        "pictureUrl": "http://localhost:3000/assets/img/gym.jpeg",
+        "categoryId": 7
+    },
+    {
+        "id": 11,
+        "title": "Espejo Maquillaje C/luz Beurer Con Aumento Bs49",
+        "description": "Espejo con aumento con luz útil para el cuidado diario de la piel y la aplicación de maquillaje. El espejo dispone de una superficie normal y una con aumento que pueden girarse según conveniencia.",
+        "price": 4370,
+        "stock": 30,
+        "pictureUrl": "http://localhost:3000/assets/img/espejo.jpeg",
+        "categoryId": 8
+    },
+    {
+        "id": 12,
+        "title": "Sillon Ejecutivo Silla Oficina.",
+        "description": "Este sillón se destaca por su comodidad, agarre lumbar y tela MESH (especial para verano)",
+        "price": 14000,
+        "stock": 15,
+        "pictureUrl": "http://localhost:3000/assets/img/sillon.jpeg",
+        "categoryId": 9
+    },
+    {
+        "id": 13,
+        "title": "Mesa Comedor 140 Nordica Paraíso Laqueada",
+        "description": "Mesa 140 ESCANDINAVA NÓRDICA",
+        "price": 11890,
+        "stock": 5,
+        "pictureUrl": "http://localhost:3000/assets/img/mesa.jpeg",
+        "categoryId": 3
+    },
+    {
+        "id": 14,
+        "title": "Campera Nylon Ultraliviana Kappa",
+        "description": "Campera Nylon ultraliviana marca kappa.",
+        "price": 11000,
+        "stock": 7,
+        "pictureUrl": "http://localhost:3000/assets/img/campera.jpeg",
+        "categoryId": 2
+    },
+    {
+        "id": 15,
+        "title": "Campera Columbia Blazing Star Mujer",
+        "description": "Una prenda impermeable y abrigada que desafía el invierno como pocas!, Exterior que brinda protección y un inigualable diseño femenino entallado, que esconde un cálido abrigo desmontable para enfrentar las condiciones más frías. Versátil y poderosa para que seas la estrella indiscutida de las pistas.",
+        "price": 70,
+        "stock": 14,
+        "pictureUrl": "http://localhost:3000/assets/img/campera2.jpeg",
+        "categoryId": 2
+    }
+]

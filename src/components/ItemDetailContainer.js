@@ -6,21 +6,29 @@ import { ItemDetail } from "./ItemDetail";
 export const ItemDetailContainer = () => {
   const { id } = useParams();
 
-  const [state, setState] = useState({
-    data: [],
-  });
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
-      GetItems().then((items) => {
-        setState({
-          data: items[id - 1],
-        });
-      });
-    }, 2000);
-  });
+        GetItems()
+          .then((items) => {
+            const found = items.filter(
+              function (item) {
+                if (id) {
+                  return item.id == id;
+                } else {
+                  return items;
+                }
+              }
+            );
+            return found                              
+          })
+            .then(items => {
+                setItem(items[0]);
+            })
+    }, 1000);
+}, [])  
 
-  const { data: item } = state;
 
   return (
     <div>

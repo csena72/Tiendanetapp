@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import {
-  ButtonGroup,
-  Button,
-  Alert
-
-} from 'react-bootstrap';
+import React, { useState } from "react";
+import { ButtonGroup, Button } from "react-bootstrap";
 
 export function ItemCount({ stock, initial, onAdd }) {
   const [counter, setCounter] = useState(initial);
@@ -14,43 +9,44 @@ export function ItemCount({ stock, initial, onAdd }) {
 
   return (
     <>
-      <Alert variant="secondary">
-        <h6>Stock: {stock} </h6>
-      
       <ButtonGroup aria-label="Basic example">
-        <Button 
+        <Button
+        style={{ paddingRight: "3em" }} 
+        variant="secondary" 
+        size="sm" 
+        disabled={true}
+        >
+         Stock:  {stock} </Button>
+        <Button
           variant="secondary"
           size="sm"
           onClick={handleSubstract}
-          disabled={ stock === 0 || counter < 1 }
-        > 
-          - 
-        </Button>
-        <Button 
-          variant="secondary"
-          size="sm"
-          disabled={true}
+          disabled={stock === 0 || counter < 1}
         >
+          -
+        </Button>
+        <Button variant="secondary" size="sm" disabled={true}>
           {counter}
         </Button>
-        <Button 
+        <Button
           variant="secondary"
           size="sm"
           onClick={handleAdd}
-          disabled={ stock === 0 || counter > stock || counter === stock }
-        > 
-         + 
+          disabled={stock === 0 || counter > stock || counter === stock}
+        >
+          +
         </Button>
       </ButtonGroup>
-      </Alert>
-      <Button 
-      variant="secondary"
-      size="sm"
-      block
-      disabled={ counter === 0 || counter > stock }
-      onClick={(e) => onAdd(e, counter)}
+
+      <Button
+        style={{ marginTop: "1em" }}
+        variant="secondary"
+        size="sm"
+        block
+        disabled={counter === 0 || counter > stock}
+        onClick={(e) => onAdd(e, counter)}
       >
-      Agregar al Carrito
+        Agregar al Carrito
       </Button>
     </>
   );
