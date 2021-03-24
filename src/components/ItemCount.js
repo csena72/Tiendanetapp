@@ -39,7 +39,7 @@ export function ItemCount({ stock, initial, onAdd }) {
       </ButtonGroup>
 
       <Button
-        style={{ marginTop: "1em" }}
+        style={{ marginTop: "0.3em" }}
         variant="secondary"
         size="sm"
         block
