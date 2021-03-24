@@ -27,7 +27,7 @@ export const ItemDetailContainer = () => {
                 setItem(items[0]);
             })
     }, 1000);
-}, [])  
+})  
 
   return (
     <div>

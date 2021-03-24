@@ -4,8 +4,6 @@ import { useState } from "react";
 import { ItemCount } from "./ItemCount";
 import { CgTwitter,CgFacebook, CgInstagram } from 'react-icons/cg';
 
-
-
 export const ItemDetail = ({ item }) => {
 
   const [stockActual, setStockActual] = useState(item.stock);
@@ -23,7 +21,7 @@ export const ItemDetail = ({ item }) => {
       </Row>
     <Row style={{ margin: "3em"}}>
       <Col lg={8} mb={4}>
-        <div class="">
+        <div>
           <div className="main-product-image">
             <Image className="mx-auto d-block" src={item.pictureUrl} />
           </div>
