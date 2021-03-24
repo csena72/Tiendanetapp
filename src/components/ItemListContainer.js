@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { GetItems } from "../helpers/GetItems";
+import { GetProducts } from "../helpers/GetProducts";
 import { ItemList } from "./ItemList";
 import { Container } from 'react-bootstrap'
 
 export const ItemListContainer = () => {
 
-  const { categoryId } = useParams();  
-
-  const [items, setItems] = useState([]);    
+  const { categoryId } = useParams();
+  const [items, setItems] = useState([]); 
 
   useEffect(() => {
       setTimeout(() => {
-          GetItems()
+        GetProducts()
             .then((items) => {
               const found = items.filter(
-                function (item) {
-                  
+                function (item) {                  
                   if (categoryId) {                    
-                    return item.categoryId == categoryId;
+                    return item.categoryId === parseInt(categoryId);
                   } else {
                     return items;
                   }

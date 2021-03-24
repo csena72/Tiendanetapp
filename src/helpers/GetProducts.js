@@ -1,4 +1,4 @@
-export const GetItems = async() => {
+export const GetProducts = async() => {
 
     const url = 'http://localhost:3000/products.json';
     const res = await fetch(url);

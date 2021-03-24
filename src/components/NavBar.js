@@ -10,7 +10,7 @@ import {
   Button
 } from 'react-bootstrap'
 
-function NavBar() {
+function NavBar({items}) {
     return (
         <>
         <Navbar bg="dark" expand="lg" variant="dark" fixed="top">
@@ -22,16 +22,9 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">              
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/itemList/1">Tecnología</NavDropdown.Item>                
-                <NavDropdown.Item href="/itemList/3">Hogar Y Muebles</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/4">Electrodomésticos</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/5">Herramientas y Construcción</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/6">Juguetes Y Bebés</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/7">Deportes y Fitness</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/8">Belleza y salud</NavDropdown.Item>
-                <NavDropdown.Item href="/itemList/9">Industrias y Oficinas</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="/itemList/2">Moda</NavDropdown.Item>
+                {items.map((category, index) => (               
+                  <NavDropdown.Item key={index} href={"/itemList/" + category.id }>{category.name}</NavDropdown.Item> 
+                ))}
               </NavDropdown>
               <Nav.Link href="/help">Ayuda</Nav.Link>
               <CartWidget />        

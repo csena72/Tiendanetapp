@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useParams } from "react-router";
-import { GetItems } from "../helpers/GetItems";
+import { GetProducts } from "../helpers/GetProducts";
 import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = () => {
@@ -10,12 +10,12 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     setTimeout(() => {
-        GetItems()
+      GetProducts()
           .then((items) => {
             const found = items.filter(
               function (item) {
                 if (id) {
-                  return item.id == id;
+                  return item.id === parseInt(id);
                 } else {
                   return items;
                 }
@@ -28,7 +28,6 @@ export const ItemDetailContainer = () => {
             })
     }, 1000);
 }, [])  
-
 
   return (
     <div>
