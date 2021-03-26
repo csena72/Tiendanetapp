@@ -27,12 +27,12 @@ export const ItemDetailContainer = () => {
                 setItem(items[0]);
             })
     }, 1000);
-})  
+},[id])  
 
   return (
     <div>
       <h2>Detalle del producto {id}</h2>
-      <ItemDetail key={id} item={item} />
+      <ItemDetail key={item.id} item={item} />
     </div>
   );
 };

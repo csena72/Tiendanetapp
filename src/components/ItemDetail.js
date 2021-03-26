@@ -1,16 +1,17 @@
-import { Row, Col, Image, Card } from "react-bootstrap";
-
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import { ItemCount } from "./ItemCount";
 import { CgTwitter,CgFacebook, CgInstagram } from 'react-icons/cg';
 
 export const ItemDetail = ({ item }) => {
 
   const [stockActual, setStockActual] = useState(item.stock);
+  const [enableButton, setEnableButton] = useState(false)
 
   const restarStock = (e, nuevoStock) => {
     e.preventDefault();
-    
+    setEnableButton(true);
     setStockActual((stockActual) => stockActual - nuevoStock);
   };
 
@@ -36,6 +37,16 @@ export const ItemDetail = ({ item }) => {
             <Card.Text className="float-right">Descripción: {item.description}</Card.Text>
             <Card.Text className="float-right">Precio: $ {item.price}</Card.Text>
             <ItemCount stock={stockActual} initial={1} onAdd={restarStock} />
+            <Link to={"/cart"}>
+              <Button
+                style={{ marginTop: "0.3em" }}
+                variant="secondary"
+                size="sm"
+                block
+                disabled={enableButton === false}                          
+              >Termina tu compra
+              </Button>
+            </Link>
             <Card.Text style={{marginTop:"2em"}}>
               Compartir: 
               <CgFacebook /> 

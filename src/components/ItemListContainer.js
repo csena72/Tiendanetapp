@@ -28,7 +28,7 @@ export const ItemListContainer = () => {
                   setItems(items)
               })
       }, 2000);
-  })
+  },[categoryId])
   
   return (
     <Container fluid="lg">
