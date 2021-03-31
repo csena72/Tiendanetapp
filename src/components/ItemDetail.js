@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import CartContext from '../contexts/CartContext';
 import { Link } from "react-router-dom";
 import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import { ItemCount } from "./ItemCount";
@@ -6,9 +7,11 @@ import { CgTwitter,CgFacebook, CgInstagram } from 'react-icons/cg';
 
 export const ItemDetail = ({ item }) => {
 
-  const [stockActual, setStockActual] = useState(item.stock);
-  const [enableButton, setEnableButton] = useState(false)
+  const context = useContext(CartContext);
 
+  const [stockActual, setStockActual] = useState(item.stock);
+  const [enableButton, setEnableButton] = useState(false);
+  
   const restarStock = (e, nuevoStock) => {
     e.preventDefault();
     setEnableButton(true);
@@ -43,7 +46,8 @@ export const ItemDetail = ({ item }) => {
                 variant="secondary"
                 size="sm"
                 block
-                disabled={enableButton === false}                          
+                disabled={enableButton === false}
+                onClick={() => context.addItemToCart( item, item.stock - stockActual )}                          
               >Termina tu compra
               </Button>
             </Link>

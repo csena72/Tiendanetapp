@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import CartContext from '../contexts/CartContext';
 import { ButtonGroup, Button } from "react-bootstrap";
 
-export function ItemCount({ stock, initial, onAdd }) {
+export function ItemCount({ stock, initial, onAdd, item }) {
   const [counter, setCounter] = useState(initial);
 
   const handleAdd = () => setCounter(counter + 1);
   const handleSubstract = () => setCounter(counter - 1);
+
+  const context = useContext(CartContext);
 
   return (
     <>
@@ -44,7 +47,7 @@ export function ItemCount({ stock, initial, onAdd }) {
         size="sm"
         block
         disabled={counter === 0 || counter > stock}
-        onClick={(e) => onAdd(e, counter)}
+        onClick={(e) => {onAdd(e, counter); context.addItemToCart( item, counter )}}
       >
         Agregar al Carrito
       </Button>
