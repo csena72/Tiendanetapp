@@ -7,7 +7,14 @@ import { MdDelete } from "react-icons/md";
 export const Cart = () => {
   const context = useContext(CartContext);
 
-  const total = 0;
+  const handleTotal = () =>{
+    const totals = context.cartState.map( product => {
+      return product.item.price * product.quantity;
+    });
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    return totals.reduce(reducer);
+  } 
 
   return (
     <>
@@ -64,7 +71,7 @@ export const Cart = () => {
                 <tr> 
                     <td colSpan={7}>
                         <span className="float-right">
-                            Total: {total}        
+                            Total: ${handleTotal()}       
                         </span>
                     </td>
                     <td></td>
