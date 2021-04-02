@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import CartContext from '../contexts/CartContext';
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import { ItemCount } from "./ItemCount";
@@ -7,14 +6,10 @@ import { CgTwitter,CgFacebook, CgInstagram } from 'react-icons/cg';
 
 export const ItemDetail = ({ item }) => {
 
-  const context = useContext(CartContext);
-
   const [stockActual, setStockActual] = useState(item.stock);
-  const [enableButton, setEnableButton] = useState(false);
   
   const restarStock = (e, nuevoStock) => {
-    e.preventDefault();
-    setEnableButton(true);
+    e.preventDefault();    
     setStockActual((stockActual) => stockActual - nuevoStock);
   };
 
@@ -39,18 +34,7 @@ export const ItemDetail = ({ item }) => {
             <hr />
             <Card.Text className="float-right">Descripción: {item.description}</Card.Text>
             <Card.Text className="float-right">Precio: $ {item.price}</Card.Text>
-            <ItemCount stock={stockActual} initial={1} onAdd={restarStock} />
-            <Link to={"/cart"}>
-              <Button
-                style={{ marginTop: "0.3em" }}
-                variant="secondary"
-                size="sm"
-                block
-                disabled={enableButton === false}
-                onClick={() => context.addItemToCart( item, item.stock - stockActual )}                          
-              >Termina tu compra
-              </Button>
-            </Link>
+            <ItemCount stock={stockActual} initial={1} onAdd={restarStock} item={item} />
             <Card.Text style={{marginTop:"2em"}}>
               Compartir: 
               <CgFacebook /> 
@@ -60,6 +44,22 @@ export const ItemDetail = ({ item }) => {
           </Card.Body>
         </Card>
       </Col>
+    </Row>
+    <Row style={{ margin: "3em"}}>
+      <Col lg={5} xs={4}></Col>
+      <Col lg={2} xs={4}>      
+        <Link to={"/"} className="abtn">
+          <Button
+            style={{ marginTop: "0.1em" }}
+            variant="secondary"
+            size="sm"
+            block  
+          >
+            Volver
+          </Button>                      
+        </Link>        
+      </Col>
+      <Col lg={5} xs={4}></Col>
     </Row>
   </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { GetCategories } from "./helpers/GetCategories";
 import CartContext from "./contexts/CartContext";
@@ -26,18 +26,37 @@ function App() {
 
   const { data: items } = state;
 
-  const [cartState, setCartState] = useState([]);
+  const context = useContext(CartContext);
+
+  const [cartState, setCartState] = useState(context);
 
   const addItem = (item, quantity) => {
-    setCartState(      
-      {
-        item: item,
-        quantity: quantity,
-      });
+    if(cartState.filter(cartState => cartState.item.id === item.id).length){
+
+      let newCartState = cartState.filter(cartState => cartState.item.id !== item.id).concat(
+        {
+          item: item,
+          quantity: cartState[0].quantity + quantity,
+        }
+      );
+      
+      setCartState(newCartState)
+
+    } else {
+      setCartState([
+        ...cartState,
+        {
+          item: item,
+          quantity: quantity,
+        }
+      ]);
+    }
   };
 
-  const removeItem = ( id ) => {
-    setCartState();
+  const removeItem = ( id ) => {    
+    setCartState(      
+      cartState.filter(cartState => cartState.item.id !== id)      
+    );
   }
 
   const clear = () => {

@@ -68,3 +68,24 @@
 .main-product-image img{
   height: 20rem!important;
 }
+
+.abtn:hover,
+.abtn:visited {  
+  color: #17a2b8!important;
+  text-decoration: none!important;
+}
+
+.spinner {
+  display: block;
+  position: fixed;  
+  top: 50%;
+  right: 50%;
+}
+
+.textSpinner {
+  color: #9fa5aa;
+  display: block;
+  position: fixed;  
+  top: 56%;
+  right: 47%;
+}

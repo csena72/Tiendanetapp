@@ -1,14 +1,18 @@
-import React, { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import CartContext from '../contexts/CartContext';
+// import { Link } from "react-router-dom";
 import { ButtonGroup, Button } from "react-bootstrap";
 
 export function ItemCount({ stock, initial, onAdd, item }) {
-  const [counter, setCounter] = useState(initial);
 
+  
+  const [counter, setCounter] = useState(initial);  
+
+  const context = useContext(CartContext);
+  
   const handleAdd = () => setCounter(counter + 1);
   const handleSubstract = () => setCounter(counter - 1);
 
-  const context = useContext(CartContext);
 
   return (
     <>
@@ -47,10 +51,22 @@ export function ItemCount({ stock, initial, onAdd, item }) {
         size="sm"
         block
         disabled={counter === 0 || counter > stock}
-        onClick={(e) => {onAdd(e, counter); context.addItemToCart( item, counter )}}
+        onClick={(e) => {onAdd(e, counter)}}
       >
         Agregar al Carrito
       </Button>
+      {/* <Link to={"/cart"} className="abtn"> */}
+      { stock < item.stock && (
+              <Button
+                style={{ marginTop: "0.3em" }}
+                variant="success"
+                size="sm"
+                block                
+                onClick={() => context.addItemToCart( item, counter )}                          
+              >Termina tu compra
+      </Button>
+      )}
+      {/* </Link> */}
     </>
   );
 }
