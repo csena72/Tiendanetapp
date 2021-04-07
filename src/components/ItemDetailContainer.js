@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { GetProducts } from "../helpers/GetProducts";
+import { getFirestore } from '../configs/firebase';
 import { ItemDetail } from "./ItemDetail";
 
 import { Spinner } from "react-bootstrap";
@@ -12,23 +12,22 @@ export const ItemDetailContainer = () => {
   const [isLoad, setIsLoad] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      GetProducts()
-        .then((items) => {
-          const found = items.filter(function (item) {
-            if (id) {
-              return item.id === parseInt(id);
-            } else {
-              return items;
-            }
-          });
-          return found;
-        })
-        .then((items) => {
-          setItem(items[0]);
-          setIsLoad(false);
-        });
-    }, 1000);
+    const db = getFirestore();
+    const products = db.collection("items");
+    const item = products.doc(id)
+
+    item.get().then((doc) => {
+      if(!doc.exists){
+        console.log('Item does not exist!');
+        return;
+      }      
+      setItem({id:doc.id, ...doc.data()});
+
+    }).catch((error)=> {
+      console.log("Error searching items", error);
+    }).finally(() =>{
+      setIsLoad(false);
+    });
   }, [id]);
 
   return (

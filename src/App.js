@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { GetCategories } from "./helpers/GetCategories";
+import { getFirestore } from './configs/firebase';
 import CartContext from "./contexts/CartContext";
 import NavBar from "./components/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer";
@@ -15,13 +15,18 @@ function App() {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      GetCategories().then((items) => {
-        setState({
-          data: items,
-        });
-      });
-    }, 2000);
+    const db = getFirestore();
+    const categories = db.collection("categories");
+
+    categories.get().then((querySnapshot) => {
+      if(querySnapshot.size === 0){
+        console.log('No results!');
+      }
+      setState({data: querySnapshot.docs.map(doc => doc.data())})
+    }).catch((error)=> {
+      console.log("Error searching items", error);
+    });
+
   }, []);
 
   const { data: items } = state;

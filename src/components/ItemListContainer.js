@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { GetProducts } from "../helpers/GetProducts";
+import { getFirestore } from '../configs/firebase';
 import { ItemList } from "./ItemList";
 import { Container, Spinner } from "react-bootstrap";
 
@@ -10,23 +10,26 @@ export const ItemListContainer = () => {
   const [isLoad, setIsLoad] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      GetProducts()
-        .then((items) => {
-          const found = items.filter(function (item) {
-            if (categoryId) {
-              return item.categoryId === parseInt(categoryId);
-            } else {
-              return items;
-            }
-          });
-          return found;
-        })
-        .then((items) => {
-          setItems(items);
-          setIsLoad(false);
-        });
-    }, 2000);
+    const db = getFirestore();
+    let products = db.collection("items");
+    
+    if (categoryId) {      
+      const filterCategory = products.where('categoryId', '==', 8);
+      products = filterCategory;
+    }
+
+    products.get().then((querySnapshot) => {
+      if(querySnapshot.size === 0){
+        console.log('No results!');
+      }
+      const items = querySnapshot.docs.map( doc => [ { id: doc.id, ...doc.data() } ]);
+      setItems(items.map(index => index[0]));        
+
+    }).catch((error)=> {
+      console.log("Error searching items", error);
+    }).finally(() =>{
+      setIsLoad(false);
+    });
   }, [categoryId]);
 
   return (

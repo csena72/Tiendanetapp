@@ -48,7 +48,7 @@ export const Cart = () => {
                         <Image
                             className="mx-auto d-block"
                             width="80px"
-                            src={product.item.pictureUrl}
+                            src={product.item.image}
                         />
                         </td>
                         <td  className="align-middle">{product.item.id}</td>

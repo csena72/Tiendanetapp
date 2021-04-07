@@ -22,7 +22,7 @@ export const ItemDetail = ({ item }) => {
       <Col lg={8} mb={4}>
         <div>
           <div className="main-product-image">
-            <Image className="mx-auto d-block" src={item.pictureUrl} />
+            <Image className="mx-auto d-block" src={item.image} />
           </div>
         </div>
       </Col>
