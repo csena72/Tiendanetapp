@@ -13,14 +13,19 @@ export const ItemListContainer = () => {
     const db = getFirestore();
     let products = db.collection("items");
     
-    if (categoryId) {      
-      const filterCategory = products.where('categoryId', '==', 8);
+    if (categoryId) {
+      const filterCategory = products.where('categoryId', '==', parseInt(categoryId));
       products = filterCategory;
     }
 
     products.get().then((querySnapshot) => {
       if(querySnapshot.size === 0){
-        console.log('No results!');
+        swal({
+          text: `No se encontraron resultados`,
+          icon: 'info',
+          button: 'Aceptar'
+        });
+        //TODO: redirect al /
       }
       const items = querySnapshot.docs.map( doc => [ { id: doc.id, ...doc.data() } ]);
       setItems(items.map(index => index[0]));        
