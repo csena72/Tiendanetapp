@@ -89,3 +89,12 @@
   top: 56%;
   right: 47%;
 }
+
+.swal-button{
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.swal-button:hover{
+  background-color: #5a6268!important;
+}

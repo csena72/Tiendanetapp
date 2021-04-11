@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import firebase from "firebase/app";
 import { getFirestore } from './configs/firebase';
+import swal from 'sweetalert';
 import CartContext from "./contexts/CartContext";
 import NavBar from "./components/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer";
@@ -67,6 +69,29 @@ function App() {
   const clear = () => {
     setCartState([]);
   }
+    
+  const db = getFirestore();
+
+  function createOrder(products, total) { 
+    const newOrder = {
+      buyer: { id: 1, name: "Cris", phone: 1136745563, email: "csena@gmail.com" },
+      items: products,
+      date: firebase.firestore.Timestamp.fromDate(new Date()),
+      total: total,
+    };
+
+    const orders = db.collection("orders");
+
+    orders.add(newOrder).then((resp) => {      
+      swal({
+        title: `Su compra se realizó con éxito!`,
+        text: `El id de la orden de compra es: ${resp.id}`,
+        icon: 'success',
+        button: 'Aceptar'
+      });
+      clear();
+    });
+  }
 
   return (
     <>
@@ -76,7 +101,8 @@ function App() {
             cartState: cartState, 
             addItemToCart: addItem, 
             removeItemFromCart: removeItem,
-            removeAllitemsFromCart: clear
+            removeAllitemsFromCart: clear,
+            createOrder: createOrder
            }}
         >
           <NavBar items={items} />

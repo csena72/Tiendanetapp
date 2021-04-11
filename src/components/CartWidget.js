@@ -25,7 +25,7 @@ export function CartWidget() {
     { handleQty() > 0 && (
     <Link to={"/cart"}>
       <Button variant="outline-info"><MdShoppingCart />
-       Comprar <Badge variant="light">{ handleQty() }</Badge>
+        Carrito <Badge variant="light">{ handleQty() }</Badge>
        </Button>
     </Link>
     )}

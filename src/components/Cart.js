@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CartContext from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, Button, Table } from "react-bootstrap";
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdDone } from "react-icons/md";
 
 export const Cart = () => {
   const context = useContext(CartContext);
@@ -77,13 +77,23 @@ export const Cart = () => {
                     <td></td>
                 </tr>
                 <tr>
-                    <td colSpan={8}>
+                <td colSpan={12}>
+                        <Button                            
+                            variant="success"
+                            size="sm"
+                            className="float-right"
+                            onClick={ () => context.createOrder(context.cartState, handleTotal()) }                            
+                            >Finalizar la compra <MdDone />
+                        </Button>
+                    </td>
+                 </tr>
+                 <tr>   
+                    <td colSpan={12} className="text-center">
                         <Button                            
                             variant="secondary"
-                            size="sm"
-                            block
+                            size="sm"                            
                             onClick={() => context.removeAllitemsFromCart()}
-                            ><MdDelete /> Eliminar todos los productos
+                            >Eliminar todos los productos <MdDelete />
                         </Button>
                     </td>
                 </tr>
@@ -98,13 +108,12 @@ export const Cart = () => {
                     </td>
                 </tr>
                 <tr>                  
-                  <td colSpan={8}>
+                  <td colSpan={12} className="text-center">
                     <Link to={"/"} className="abtn">
                       <Button
                         style={{ marginTop: "0.1em" }}
                         variant="secondary"
-                        size="sm"
-                        block  
+                        size="sm"                          
                       >
                         Ir al home
                       </Button>                      
