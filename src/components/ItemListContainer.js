@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { getFirestore } from '../configs/firebase';
 import { ItemList } from "./ItemList";
 import { Container, Spinner } from "react-bootstrap";
+import swal from 'sweetalert';
 
 export const ItemListContainer = () => {
   const { categoryId } = useParams();
