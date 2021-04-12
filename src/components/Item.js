@@ -16,7 +16,7 @@ export const Item = ({ item }) => {
   return (
     <Card style={{ width: "14rem" }}>
       <Link to={"/itemDetail/" + item.id}>
-        <Card.Img variant="top" className="animate__animated animate__fadeIn" src={item.image} />
+        <Card.Img variant="top" className="animate__animated animate__fadeIn animate__slow" src={item.image} />
       </Link>
       <Card.Body>
         <hr />

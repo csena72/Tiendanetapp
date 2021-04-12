@@ -25,7 +25,7 @@ export const ItemDetail = ({ item }) => {
         <Col lg={8} mb={4}>
           <div>
             <div className="main-product-image">
-              <Image className="mx-auto d-block animate__animated animate__fadeIn" src={item.image} />
+              <Image className="mx-auto d-block animate__animated animate__fadeIn animate__slow" src={item.image} />
             </div>
           </div>
         </Col>
