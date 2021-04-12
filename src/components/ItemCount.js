@@ -1,29 +1,27 @@
 import { useState, useContext } from "react";
-import CartContext from '../contexts/CartContext';
+import CartContext from "../contexts/CartContext";
 import { ButtonGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function ItemCount({ stock, initial, onAdd, item }) {
-
-  
-  const [counter, setCounter] = useState(initial);  
+  const [counter, setCounter] = useState(initial);
 
   const context = useContext(CartContext);
-  
+
   const handleAdd = () => setCounter(counter + 1);
   const handleSubstract = () => setCounter(counter - 1);
-
 
   return (
     <>
       <ButtonGroup aria-label="Basic example">
         <Button
-        style={{ paddingRight: "3em" }} 
-        variant="secondary" 
-        size="sm" 
-        disabled={true}
+          style={{ paddingRight: "3em" }}
+          variant="secondary"
+          size="sm"
+          disabled={true}
         >
-         Stock:  {stock} </Button>
+          Stock: {stock}{" "}
+        </Button>
         <Button
           variant="secondary"
           size="sm"
@@ -51,22 +49,24 @@ export function ItemCount({ stock, initial, onAdd, item }) {
         size="sm"
         block
         disabled={counter === 0 || counter > stock}
-        onClick={ (e) => { onAdd(e, counter); context.addItemToCart( item, counter ) }}
-        
+        onClick={(e) => {
+          onAdd(e, counter);
+          context.addItemToCart(item, counter);
+        }}
       >
         Agregar al Carrito
       </Button>
       <Link to={"/cart"} className="abtn">
-      { stock < item.stock && (
-              <Button
-                style={{ marginTop: "0.3em" }}
-                variant="success"
-                size="sm"
-                block                    
-              >
-                Termina tu compra
-              </Button>
-      )}
+        {stock < item.stock && (
+          <Button
+            style={{ marginTop: "0.3em" }}
+            variant="success"
+            size="sm"
+            block
+          >
+            Termina tu compra
+          </Button>
+        )}
       </Link>
     </>
   );

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getFirestore } from '../configs/firebase';
+import { getFirestore } from "../configs/firebase";
 import { ItemList } from "./ItemList";
 import { Container, Spinner } from "react-bootstrap";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 export const ItemListContainer = () => {
   const { categoryId } = useParams();
@@ -13,29 +13,38 @@ export const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     let products = db.collection("items");
-    
+
     if (categoryId) {
-      const filterCategory = products.where('categoryId', '==', parseInt(categoryId));
+      const filterCategory = products.where(
+        "categoryId",
+        "==",
+        parseInt(categoryId)
+      );
       products = filterCategory;
     }
 
-    products.get().then((querySnapshot) => {
-      if(querySnapshot.size === 0){
-        swal({
-          text: `No se encontraron resultados`,
-          icon: 'info',
-          button: 'Aceptar'
-        });
-        //TODO: redirect al /
-      }
-      const items = querySnapshot.docs.map( doc => [ { id: doc.id, ...doc.data() } ]);
-      setItems(items.map(index => index[0]));        
-
-    }).catch((error)=> {
-      console.log("Error searching items", error);
-    }).finally(() =>{
-      setIsLoad(false);
-    });
+    products
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          swal({
+            text: `No se encontraron resultados`,
+            icon: "info",
+            button: "Aceptar",
+          });
+          //TODO: redirect al /
+        }
+        const items = querySnapshot.docs.map((doc) => [
+          { id: doc.id, ...doc.data() },
+        ]);
+        setItems(items.map((index) => index[0]));
+      })
+      .catch((error) => {
+        console.log("Error searching items", error);
+      })
+      .finally(() => {
+        setIsLoad(false);
+      });
   }, [categoryId]);
 
   return (

@@ -42,42 +42,42 @@
   margin-bottom: 4em;
 }
 
-.card-title{
+.card-title {
   height: 4.5em;
 }
 
-.navbar-brand a{
-  color: aqua;  
+.navbar-brand a {
+  color: aqua;
 }
 
 .navbar-brand a:hover,
-.navbar-brand:visited {  
-  color: #17a2b8!important;
+.navbar-brand:visited {
+  color: #17a2b8 !important;
   text-decoration: none;
 }
 
-.card-body a{
-  color: #17a2b8!important;  
+.card-body a {
+  color: #17a2b8 !important;
 }
 
-.card-body a:hover{
-  color: #6d8a99!important;
+.card-body a:hover {
+  color: #6d8a99 !important;
   text-decoration: none;
 }
 
-.main-product-image img{
-  height: 20rem!important;
+.main-product-image img {
+  height: 20rem !important;
 }
 
 .abtn:hover,
-.abtn:visited {  
-  color: #17a2b8!important;
-  text-decoration: none!important;
+.abtn:visited {
+  color: #17a2b8 !important;
+  text-decoration: none !important;
 }
 
 .spinner {
   display: block;
-  position: fixed;  
+  position: fixed;
   top: 50%;
   right: 50%;
 }
@@ -85,16 +85,16 @@
 .textSpinner {
   color: #9fa5aa;
   display: block;
-  position: fixed;  
+  position: fixed;
   top: 56%;
   right: 47%;
 }
 
-.swal-button{
+.swal-button {
   background-color: #6c757d;
   border-color: #6c757d;
 }
 
-.swal-button:hover{
-  background-color: #5a6268!important;
+.swal-button:hover {
+  background-color: #5a6268 !important;
 }
