@@ -5,10 +5,15 @@ import { Row, Col, Image, Button, Table } from "react-bootstrap";
 import { MdDelete, MdDone } from "react-icons/md";
 
 export const Cart = () => {
-  const context = useContext(CartContext);
+  const {
+    cartState,
+    removeItemFromCart,
+    removeAllitemsFromCart,
+    createOrder,
+  } = useContext(CartContext);
 
   const handleTotal = () => {
-    const totals = context.cartState.map((product) => {
+    const totals = cartState.map((product) => {
       return product.item.price * product.quantity;
     });
 
@@ -40,9 +45,9 @@ export const Cart = () => {
                 <th></th>
               </tr>
             </thead>
-            {context.cartState.length > 0 ? (
+            {cartState.length > 0 ? (
               <tbody>
-                {context.cartState.map((product, index) => (
+                {cartState.map((product, index) => (
                   <tr key={index}>
                     <td>
                       <Image
@@ -67,9 +72,7 @@ export const Cart = () => {
                       <Button
                         variant="secondary"
                         size="sm"
-                        onClick={() =>
-                          context.removeItemFromCart(product.item.id)
-                        }
+                        onClick={() => removeItemFromCart(product.item.id)}
                       >
                         <MdDelete />
                       </Button>
@@ -88,9 +91,7 @@ export const Cart = () => {
                       variant="success"
                       size="sm"
                       className="float-right"
-                      onClick={() =>
-                        context.createOrder(context.cartState, handleTotal())
-                      }
+                      onClick={() => createOrder(cartState, handleTotal())}
                     >
                       Finalizar la compra <MdDone />
                     </Button>
@@ -101,7 +102,7 @@ export const Cart = () => {
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={() => context.removeAllitemsFromCart()}
+                      onClick={() => removeAllitemsFromCart()}
                     >
                       Eliminar todos los productos <MdDelete />
                     </Button>

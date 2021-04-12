@@ -2,9 +2,11 @@ import { useState, useContext } from "react";
 import { getFirestore } from "../configs/firebase";
 import firebase from "firebase/app";
 import CartContext from "../contexts/CartContext";
+import { AppRouter } from "../routes/AppRouter";
 import swal from "sweetalert";
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = () => {
+  
   const context = useContext(CartContext);
 
   const [cartState, setCartState] = useState(context);
@@ -76,7 +78,7 @@ export const CartProvider = ({ children }) => {
         createOrder: createOrder,
       }}
     >
-      {children}
+      <AppRouter />
     </CartContext.Provider>
   );
 };
