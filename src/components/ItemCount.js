@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../contexts/CartContext";
 import { ButtonGroup, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { MdShoppingCart } from "react-icons/md";
+
 
 export function ItemCount({ stock, initial, onAdd, item }) {
   const [counter, setCounter] = useState(initial);
@@ -54,7 +56,7 @@ export function ItemCount({ stock, initial, onAdd, item }) {
           context.addItemToCart(item, counter);
         }}
       >
-        Agregar al Carrito
+        Agregar <MdShoppingCart />
       </Button>
       <Link to={"/cart"} className="abtn">
         {stock < item.stock && (

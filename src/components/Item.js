@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { FaTruck } from "react-icons/fa";
 
+import { formatNumber } from '../helpers/formatNumer'
+
 export const Item = ({ item }) => {
   const [stockActual, setStockActual] = useState(item.stock);
 
@@ -25,7 +27,7 @@ export const Item = ({ item }) => {
         </Link>
 
         <FaTruck />
-        <Card.Text className="float-right">$ {item.price}</Card.Text>
+        <Card.Text className="float-right">{formatNumber(item.price)}</Card.Text>
         <ItemCount
           stock={stockActual}
           initial={1}

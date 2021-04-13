@@ -98,3 +98,8 @@
 .swal-button:hover {
   background-color: #5a6268 !important;
 }
+
+.table>tbody>tr.no-border>td,
+.table>thead>tr.no-border>th {
+  border-top: none;
+}

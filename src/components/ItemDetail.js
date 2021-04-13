@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import { ItemCount } from "./ItemCount";
 import { CgTwitter, CgFacebook, CgInstagram } from "react-icons/cg";
+import { formatNumber } from '../helpers/formatNumer';
 
 export const ItemDetail = ({ item }) => {
   const [stockActual, setStockActual] = useState(item.stock);
@@ -39,7 +40,7 @@ export const ItemDetail = ({ item }) => {
                 Descripción: {item.description}
               </Card.Text>
               <Card.Text className="float-right">
-                Precio: $ {item.price}
+                Precio: {formatNumber(item.price)}
               </Card.Text>
               <ItemCount
                 stock={stockActual}

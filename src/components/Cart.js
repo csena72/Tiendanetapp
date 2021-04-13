@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
-import CartContext from "../contexts/CartContext";
-import { Link } from "react-router-dom";
-import { Row, Col, Image, Button, Table } from "react-bootstrap";
-import { MdDelete, MdDone } from "react-icons/md";
+import React, { useContext } from 'react';
+import CartContext from '../contexts/CartContext';
+import { Link } from 'react-router-dom';
+import { Row, Col, Image, Button, Table, OverlayTrigger ,Tooltip } from 'react-bootstrap';
+import { MdDelete, MdDone } from 'react-icons/md';
+
+import { formatNumber } from '../helpers/formatNumer';
 
 export const Cart = () => {
   const {
@@ -18,7 +20,7 @@ export const Cart = () => {
     });
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    return totals.reduce(reducer);
+    return formatNumber(totals.reduce(reducer));
   };
 
   return (
@@ -27,16 +29,15 @@ export const Cart = () => {
         style={{ margin: "5em", borderBottom: "1px solid", color: "#e5e5e5" }}
       >
         <Col>
-          <h1 style={{ color: "#212529" }}>Cart</h1>
+          <h1 style={{ color: "#212529" }}>Carrito</h1>
         </Col>
       </Row>
       <Row style={{ margin: "5em" }}>
         <Col>
-          <Table striped bordered hover size="sm">
+          <Table responsive size="sm">
             <thead>
-              <tr>
-                <th className="align-middle"></th>
-                <th className="align-middle">ID</th>
+              <tr className="no-border">
+                <th className="align-middle"></th>                
                 <th className="align-middle">Producto</th>
                 <th className="align-middle">Descripción</th>
                 <th className="align-middle">Cantidad</th>
@@ -55,37 +56,44 @@ export const Cart = () => {
                         width="80px"
                         src={product.item.image}
                       />
-                    </td>
-                    <td className="align-middle">{product.item.id}</td>
+                    </td>                    
                     <td className="align-middle">{product.item.title}</td>
                     <td className="align-middle">{product.item.description}</td>
                     <td className="align-middle text-center">
                       {product.quantity}
                     </td>
                     <td className="align-middle text-right">
-                      ${product.item.price}
+                      {formatNumber(product.item.price)}
                     </td>
                     <td className="align-middle text-right">
-                      ${product.item.price * product.quantity}
+                      {formatNumber(product.item.price * product.quantity)}
                     </td>
                     <td className="align-middle">
+                    <OverlayTrigger                    
+                      overlay={
+                        <Tooltip id={`tooltip`}>
+                          Eliminar
+                        </Tooltip>
+                      }
+                    >
                       <Button
                         variant="secondary"
                         size="sm"
                         onClick={() => removeItemFromCart(product.item.id)}
                       >
-                        <MdDelete />
+                          <MdDelete />
                       </Button>
+                    </OverlayTrigger>
                     </td>
                   </tr>
                 ))}
                 <tr>
                   <td colSpan={7}>
-                    <span className="float-right">Total: ${handleTotal()}</span>
+                    <strong className="float-right">Total: {handleTotal()}</strong>
                   </td>
                   <td></td>
                 </tr>
-                <tr>
+                <tr className="no-border">
                   <td colSpan={12}>
                     <Button
                       variant="success"
