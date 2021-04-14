@@ -1,18 +1,28 @@
-import React, { useContext } from 'react';
-import CartContext from '../contexts/CartContext';
-import { Link } from 'react-router-dom';
-import { Row, Col, Image, Button, Table, OverlayTrigger ,Tooltip } from 'react-bootstrap';
-import { MdDelete, MdDone } from 'react-icons/md';
+import React, { useContext, useState } from "react";
+import CartContext from "../contexts/CartContext";
+import { Link } from "react-router-dom";
+import {
+  Row,
+  Col,
+  Image,
+  Button,
+  Table,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
+import { MdDelete, MdDone } from "react-icons/md";
 
-import { formatNumber } from '../helpers/formatNumer';
+import { formatNumber } from "../helpers/formatNumer";
+import { Checkout } from "./Checkout";
 
 export const Cart = () => {
   const {
     cartState,
     removeItemFromCart,
-    removeAllitemsFromCart,
-    createOrder,
+    removeAllitemsFromCart    
   } = useContext(CartContext);
+
+  const [modalShow, setModalShow] = useState(false);
 
   const handleTotal = () => {
     const totals = cartState.map((product) => {
@@ -37,7 +47,7 @@ export const Cart = () => {
           <Table responsive size="sm">
             <thead>
               <tr className="no-border">
-                <th className="align-middle"></th>                
+                <th className="align-middle"></th>
                 <th className="align-middle">Producto</th>
                 <th className="align-middle">Descripción</th>
                 <th className="align-middle">Cantidad</th>
@@ -56,7 +66,7 @@ export const Cart = () => {
                         width="80px"
                         src={product.item.image}
                       />
-                    </td>                    
+                    </td>
                     <td className="align-middle">{product.item.title}</td>
                     <td className="align-middle">{product.item.description}</td>
                     <td className="align-middle text-center">
@@ -69,27 +79,25 @@ export const Cart = () => {
                       {formatNumber(product.item.price * product.quantity)}
                     </td>
                     <td className="align-middle">
-                    <OverlayTrigger                    
-                      overlay={
-                        <Tooltip id={`tooltip`}>
-                          Eliminar
-                        </Tooltip>
-                      }
-                    >
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        onClick={() => removeItemFromCart(product.item.id)}
+                      <OverlayTrigger
+                        overlay={<Tooltip id={`tooltip`}>Eliminar</Tooltip>}
                       >
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => removeItemFromCart(product.item.id)}
+                        >
                           <MdDelete />
-                      </Button>
-                    </OverlayTrigger>
+                        </Button>
+                      </OverlayTrigger>
                     </td>
                   </tr>
                 ))}
                 <tr>
                   <td colSpan={7}>
-                    <strong className="float-right">Total: {handleTotal()}</strong>
+                    <strong className="float-right">
+                      Total: {handleTotal()}
+                    </strong>
                   </td>
                   <td></td>
                 </tr>
@@ -98,8 +106,8 @@ export const Cart = () => {
                     <Button
                       variant="success"
                       size="sm"
-                      className="float-right"
-                      onClick={() => createOrder(cartState, handleTotal())}
+                      className="float-right"                      
+                      onClick={() => setModalShow(true)}
                     >
                       Finalizar la compra <MdDone />
                     </Button>
@@ -144,6 +152,7 @@ export const Cart = () => {
           </Table>
         </Col>
       </Row>
+      <Checkout show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 };
