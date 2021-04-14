@@ -6,9 +6,7 @@ import {
   Col,
   Image,
   Button,
-  Table,
-  OverlayTrigger,
-  Tooltip,
+  Table   
 } from "react-bootstrap";
 import { MdDelete, MdDone } from "react-icons/md";
 
@@ -78,18 +76,14 @@ export const Cart = () => {
                     <td className="align-middle text-right">
                       {formatNumber(product.item.price * product.quantity)}
                     </td>
-                    <td className="align-middle">
-                      <OverlayTrigger
-                        overlay={<Tooltip id={`tooltip`}>Eliminar</Tooltip>}
-                      >
+                    <td className="align-middle">  
                         <Button
                           variant="secondary"
                           size="sm"
                           onClick={() => removeItemFromCart(product.item.id)}
                         >
                           <MdDelete />
-                        </Button>
-                      </OverlayTrigger>
+                        </Button>                      
                     </td>
                   </tr>
                 ))}
