@@ -42,13 +42,12 @@ export const CartProvider = () => {
 
   const db = getFirestore();
 
-  function createOrder(products, total) {
+  function createOrder(buyer, products, total) {    
     const newOrder = {
-      buyer: {
-        id: 1,
-        name: "Cris",
-        phone: 1136745563,
-        email: "csena@gmail.com",
+      buyer: {        
+        name: buyer.name,
+        phone: buyer.phone,
+        email: buyer.email
       },
       items: products,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
@@ -62,7 +61,7 @@ export const CartProvider = () => {
         title: `Su compra se realizó con éxito!`,
         text: `El id de la orden de compra es: ${resp.id}`,
         icon: "success",
-        button: "Aceptar",
+        confirmButtonText: "Aceptar",
       });
       clear();
     });

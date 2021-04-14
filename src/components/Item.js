@@ -7,12 +7,12 @@ import { FaTruck } from "react-icons/fa";
 import { formatNumber } from '../helpers/formatNumer'
 
 export const Item = ({ item }) => {
-  const [stockActual, setStockActual] = useState(item.stock);
+  const [currentStock, setCurrentStock] = useState(item.stock);
 
-  const restarStock = (e, nuevoStock) => {
-    e.preventDefault();
+  const restarStock = (event, newStock) => {
+    event.preventDefault();
 
-    setStockActual((stockActual) => stockActual - nuevoStock);
+    setCurrentStock((currentStock) => currentStock - newStock);
   };
 
   return (
@@ -29,7 +29,7 @@ export const Item = ({ item }) => {
         <FaTruck />
         <Card.Text className="float-right">{formatNumber(item.price)}</Card.Text>
         <ItemCount
-          stock={stockActual}
+          stock={currentStock}
           initial={1}
           onAdd={restarStock}
           item={item}

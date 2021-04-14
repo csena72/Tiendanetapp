@@ -30,7 +30,7 @@ export const ItemListContainer = () => {
           Swal.fire({
             text: `No se encontraron resultados`,
             icon: "info",
-            button: "Aceptar",
+            confirmButtonText: "Aceptar",
           });
           //TODO: redirect al /
         }

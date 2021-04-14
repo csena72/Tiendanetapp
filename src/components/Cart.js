@@ -11,6 +11,7 @@ import {
 import { MdDelete, MdDone } from "react-icons/md";
 
 import { formatNumber } from "../helpers/formatNumer";
+import { calculateTotal } from "../helpers/calculateTotal";
 import { Checkout } from "./Checkout";
 
 export const Cart = () => {
@@ -21,15 +22,6 @@ export const Cart = () => {
   } = useContext(CartContext);
 
   const [modalShow, setModalShow] = useState(false);
-
-  const handleTotal = () => {
-    const totals = cartState.map((product) => {
-      return product.item.price * product.quantity;
-    });
-
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    return formatNumber(totals.reduce(reducer));
-  };
 
   return (
     <>
@@ -90,7 +82,7 @@ export const Cart = () => {
                 <tr>
                   <td colSpan={7}>
                     <strong className="float-right">
-                      Total: {handleTotal()}
+                      Total: {calculateTotal(cartState)}
                     </strong>
                   </td>
                   <td></td>
