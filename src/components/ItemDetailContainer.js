@@ -23,7 +23,7 @@ export const ItemDetailContainer = () => {
         if (!doc.exists) {          
           Swal.fire({
             title: `error`,
-            text: `No existe un producto con el id: ${id}`,
+            text: `No existe el producto con el id: ${id}`,
             icon: "error",
             button: "Aceptar",
           }).then((result) => {
@@ -39,7 +39,7 @@ export const ItemDetailContainer = () => {
       .finally(() => {
         setIsLoad(false);
       });
-  }, [id]);
+  }, [id, history]);
 
   return (
     <>
