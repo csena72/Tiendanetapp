@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { getFirestore } from "../configs/firebase";
 import { ItemList } from "./ItemList";
 import { Container, Spinner } from "react-bootstrap";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 export const ItemListContainer = () => {
   const { categoryId } = useParams();
@@ -27,7 +27,7 @@ export const ItemListContainer = () => {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
-          swal({
+          Swal.fire({
             text: `No se encontraron resultados`,
             icon: "info",
             button: "Aceptar",

@@ -3,7 +3,7 @@ import { getFirestore } from "../configs/firebase";
 import firebase from "firebase/app";
 import CartContext from "../contexts/CartContext";
 import { AppRouter } from "../routes/AppRouter";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 export const CartProvider = () => {
   
@@ -58,7 +58,7 @@ export const CartProvider = () => {
     const orders = db.collection("orders");
 
     orders.add(newOrder).then((resp) => {
-      swal({
+      Swal.fire({
         title: `Su compra se realizó con éxito!`,
         text: `El id de la orden de compra es: ${resp.id}`,
         icon: "success",
