@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { getFirestore } from "../configs/firebase";
 import { ItemDetail } from "./ItemDetail";
+import Swal from "sweetalert2";
 
 import { Spinner } from "react-bootstrap";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
-
+  const history = useHistory();
   const [item, setItem] = useState([]);
   const [isLoad, setIsLoad] = useState(true);
 
@@ -19,8 +20,15 @@ export const ItemDetailContainer = () => {
     item
       .get()
       .then((doc) => {
-        if (!doc.exists) {
-          console.log("Item does not exist!");
+        if (!doc.exists) {          
+          Swal.fire({
+            title: `error`,
+            text: `No existe un producto con el id: ${id}`,
+            icon: "error",
+            button: "Aceptar",
+          }).then((result) => {
+            history.replace('/');
+          });
           return;
         }
         setItem({ id: doc.id, ...doc.data() });
@@ -35,7 +43,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      {isLoad ? (
+      {isLoad && (
         <div>
           <Spinner
             className="spinner"
@@ -47,7 +55,8 @@ export const ItemDetailContainer = () => {
           </Spinner>
           <p className="textSpinner">Cargando...</p>
         </div>
-      ) : (
+      )} 
+      { item.length > 0 &&(
         <div>
           <h2>Detalle del producto {id}</h2>
           <ItemDetail key={item.id} item={item} />
