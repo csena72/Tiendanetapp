@@ -56,7 +56,7 @@ export const ItemDetailContainer = () => {
           <p className="textSpinner">Cargando...</p>
         </div>
       )} 
-      { item.length > 0 &&(
+      { !item.length &&(
         <div>
           <h2>Detalle del producto {id}</h2>
           <ItemDetail key={item.id} item={item} />
