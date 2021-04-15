@@ -56,7 +56,8 @@ npm start
 * [Node.js](https://nodejs.org/es/) - Entorno de ejecución para JavaScript
 * [Npm](https://github.com/npm/npm) - Sistema de gestión de paquetes
 * [React](https://es.reactjs.org/) - Biblioteca de JavaScript para construir interfaces de usuario
-* [React Bootstrap](https://react-bootstrap.github.io/) - Bootstrap Front-end framework para React.
+* [React Hook Form](https://react-hook-form.com/) - Librería para validar formularios en React
+* [React Bootstrap](https://react-bootstrap.github.io/) - Bootstrap Front-end framework para React
 * [React Icons](https://react-icons.github.io/react-icons/) - Iconos para proyectos de React
 * [Animate.css](https://animate.style/) - Librería de animaciones CSS
 * [Sweetalert2](https://sweetalert2.github.io/) - Librería para generar popups 

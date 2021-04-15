@@ -45,7 +45,7 @@ export const CartProvider = () => {
   function createOrder(buyer, products, total) {    
     const newOrder = {
       buyer: {        
-        name: buyer.name,
+        name: buyer.userName,
         phone: buyer.phone,
         email: buyer.email
       },
