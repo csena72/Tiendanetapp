@@ -11,11 +11,15 @@ export const Checkout = (props) => {
     name: "",
     phone: "",
     email: "",
-    reEmail: "",
-    terms: "off",
+    reEmail: ""    
   });
 
+  const [validated, setValidated] = useState(false);
+
+  const [errors, setErrors] = useState({});
+
   const handleInputChange = (event) => {
+    setErrors({});
     setBuyer({
       ...buyer,
       [event.target.name]: event.target.value,
@@ -23,11 +27,45 @@ export const Checkout = (props) => {
   };
 
   const sendData = (event) => {
-    event.preventDefault();
+    event.preventDefault();    
+    console.log(buyer);
+    if(buyer.name === '' || buyer?.name.length < 4){
+      setErrors({ name: 'El campo debe ser mayor a 4 caracteres'});
+      return;
+    }
+
+    if(buyer.phone === '' || buyer.phone.length < 4 ){
+      setErrors({ phone: 'El campo debe ser numerico y mayor a 4 caracteres'});
+      return;
+    }
+    
+    if(buyer.email === '' ){
+      setErrors({ email: 'El e-mail es requerido'});
+      return;
+    }
+
+    if(buyer.email !== buyer.reEmail){
+      setErrors({ reEmail: 'Los e-mails no coinciden'});
+      return;
+    }
+
+    setValidated(true);
+
     createOrder(buyer, cartState, calculateTotal(cartState));
     props.onHide();
   };
 
+  const handleCancel = () => {
+    setBuyer({
+      name: "",
+      phone: "",
+      email: "",
+      reEmail: "",     
+    });
+    setErrors({});    
+    props.onHide()
+  }
+ 
   return (
     <Modal
       {...props}
@@ -39,7 +77,7 @@ export const Checkout = (props) => {
         <Modal.Title id="contained-modal-title-vcenter">Datos del comprador</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={sendData}>
+        <Form noValidate validated={validated} onSubmit={sendData}>
           <Form.Group controlId="formBasicName">
             <Form.Label>* Nombre y apellido</Form.Label>
             <Form.Control
@@ -47,11 +85,15 @@ export const Checkout = (props) => {
               placeholder="Ingrese su nombre y apellido"
               name="name"
               onChange={handleInputChange}
+              isInvalid={!!errors.name}
               required
             />
-            <Form.Text className="text-muted">
-              Debe ingresar su nombre y apellido
+            <Form.Text className="text-muted">              
+              <span className="text-danger d-block mb-2">
+                {errors?.name}
+              </span>
             </Form.Text>
+
           </Form.Group>
 
           <Form.Group controlId="formBasicPhone">
@@ -61,10 +103,13 @@ export const Checkout = (props) => {
               placeholder="Ingrese su teléfono"
               name="phone"
               onChange={handleInputChange}
+              isInvalid={!!errors.phone} 
               required
             />
             <Form.Text className="text-muted">
-              Debe ingresa su teléfono
+            <span className="text-danger d-block mb-2">
+                {errors?.phone}
+              </span>
             </Form.Text>
           </Form.Group>
 
@@ -75,6 +120,7 @@ export const Checkout = (props) => {
               placeholder="Ingrese su e-mail"
               name="email"
               onChange={handleInputChange}
+              isInvalid={!!errors.email} 
               required
             />
             <Form.Text className="text-muted">Debe ingresa su e-mail</Form.Text>
@@ -87,23 +133,16 @@ export const Checkout = (props) => {
               placeholder="Reingrese su e-mail"
               name="reEmail"
               onChange={handleInputChange}
+              isInvalid={!!errors.reEmail}              
               required
             />
             <Form.Text className="text-muted">
-              Debe ingresa nuevamente su e-mail
+            <span className="text-danger d-block mb-2">
+                {errors?.reEmail}
+              </span>
             </Form.Text>
           </Form.Group>
-
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check
-              type="checkbox"
-              label="Acepto los términos y condiciones."
-              name="terms"
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Button variant="secondary" onClick={props.onHide}>
+          <Button variant="secondary" onClick={handleCancel}>
             Cancelar
           </Button>
           <Button className="float-right" type="submit" variant="success">
