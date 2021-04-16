@@ -12,6 +12,7 @@ export const FormUser = ({ onHide }) => {
     register,
     handleSubmit,
     formState: { errors },
+    getValues
   } = useForm();
 
   const onSubmit = (data, e) => {
@@ -67,7 +68,7 @@ export const FormUser = ({ onHide }) => {
             },
             pattern: {
                 value: /^[0-9]+$/i ,
-                message: "debe ingresar un teléfono válido",
+                message: "Debe ingresar un teléfono válido",
               },
               minLength: {
                 value: 8,
@@ -112,20 +113,13 @@ export const FormUser = ({ onHide }) => {
           type="email"
           placeholder="Reingrese su e-mail"
           name="reEmail"
-          {...register("reEmail", {
-            required: {
-              value: true,
-              message: "El email es requerido",
-            },
-            pattern: {
-                value: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i,
-                message: "Debe ingresar un email válido",
-              }
+          {...register("reEmail",  {
+            validate: value => value === getValues("email")
           })}
         />
         <Form.Text className="text-muted">
           <span className="text-danger d-block mb-2">
-            {errors.reEmail && errors.reEmail.message}
+            {errors.reEmail && 'Los campos de e-mail deben ser iguales'}
           </span>
         </Form.Text>
       </Form.Group>
