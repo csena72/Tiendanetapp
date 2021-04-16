@@ -1,4 +1,4 @@
-# App TiendaNet
+# TiendaNet
 
 _coderhouse - Curso React JS: Proyecto Final - E-commerce project_
 
